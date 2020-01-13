@@ -12,13 +12,11 @@ public class Main {
     public static void main(String[] args) {
 
         InputStream listStream = null;
+        InputSource listSource;
         ArrayList<Anime> animeList = new ArrayList<>();
-        ArrayList<Anime> resultList = null;
+        ArrayList<Anime> resultList;
         XMLDataParser parser = new XMLDataParser(animeList);
         Randomizer randomizer;
-
-        InputSource listSource;
-
 
         try {
             listStream = new FileInputStream(new File("src/com/company/res/animelist_1578925630_-_4974327.xml"));
@@ -28,7 +26,6 @@ public class Main {
         }
 
         listSource = new InputSource(listStream);
-
         parser.getAnimeFromSource(listSource);
 
         randomizer = new Randomizer(animeList);
