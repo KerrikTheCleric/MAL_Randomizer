@@ -13,9 +13,11 @@ public class Main {
 
         InputStream listStream = null;
         ArrayList<Anime> animeList = new ArrayList<>();
+        ArrayList<Anime> resultList = null;
         XMLDataParser parser = new XMLDataParser(animeList);
+        Randomizer randomizer;
 
-        InputSource listSource = null;
+        InputSource listSource;
 
 
         try {
@@ -29,7 +31,12 @@ public class Main {
 
         parser.getAnimeFromSource(listSource);
 
-        System.out.println(animeList.size());
+        randomizer = new Randomizer(animeList);
+        resultList = randomizer.randomizeAnime();
+
+        for (Anime a: resultList) {
+            System.out.println(a.name + " - " + a.episodes + " Episodes");
+        }
 
     }
 }
