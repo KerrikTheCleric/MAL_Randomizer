@@ -1,20 +1,22 @@
-public class Anime {
 
-    /**
-     * <h1>Anime</h1>
-     * A data representation of weeb cartoons.
-     * <p>
-     * name - The name of the anime.
-     * <p>
-     * episodes - The amount of episodes.
-     * <p>
-     * status - The status of the anime.
-     * <p>
-     *
-     * @author  Victor Gustafsson
-     * @version 1.0
-     * @since   2020-01-13
-     */
+
+/**
+ * <h1>Anime</h1>
+ * A data representation of weeb cartoons.
+ * <p>
+ * name - The name of the anime.
+ * <p>
+ * episodes - The amount of episodes.
+ * <p>
+ * status - The status of the anime.
+ * <p>
+ *
+ * @author  Victor Gustafsson
+ * @version 1.0
+ * @since   2020-01-13
+ */
+
+public class Anime {
 
     String name;
     int episodes;

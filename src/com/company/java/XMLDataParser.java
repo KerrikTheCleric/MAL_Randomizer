@@ -9,13 +9,35 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.util.ArrayList;
 
+/**
+ * <h1>XMLDataParser</h1>
+ * A parser class for XML.
+ * <p>
+ * animeList - List of Anime objects.
+ * <p>
+ *
+ * @author  Victor Gustafsson
+ * @version 1.0
+ * @since   2020-01-13
+ */
+
 public class XMLDataParser {
 
     private ArrayList<Anime> animeList;
 
+    /**
+     * Standard constructor.
+     * @param animeList List to fill with Anime objects.
+     */
+
     public XMLDataParser(ArrayList<Anime> animeList) {
         this.animeList = animeList;
     }
+
+    /**
+     * Parses an input source of MAL XML for anime shows and puts shows tagged as "Plan to Watch" into the anime list.
+     * @param is An input source of MAL XML.
+     */
 
     public void getAnimeFromSource(InputSource is){
 
@@ -35,8 +57,8 @@ public class XMLDataParser {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE){
                     Element e = (Element) nNode;
-
                     Anime a;
+
                     a = new Anime(e.getElementsByTagName("series_title").item(
                             0).getTextContent(),
                             Integer.parseInt(e.getElementsByTagName("series_episodes").item(
@@ -44,13 +66,9 @@ public class XMLDataParser {
                             e.getElementsByTagName("my_status").item(
                             0).getTextContent()
                             );
-                    /*System.out.println(a.name);
-                    System.out.println(a.episodes);
-                    System.out.println(a.status);*/
                     if (a.status.equals("Plan to Watch")){
                         animeList.add(a);
                     }
-
                 }
             }
         } catch (Exception e) {
