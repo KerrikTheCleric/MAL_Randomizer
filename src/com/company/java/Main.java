@@ -1,14 +1,22 @@
+import org.xml.sax.InputSource;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class Main {
 
 
     public static void main(String[] args) {
 
-        InputStream listStream;
+        InputStream listStream = null;
+        ArrayList<Anime> animeList = new ArrayList<>();
+        XMLDataParser parser = new XMLDataParser(animeList);
+
+        InputSource listSource = null;
+
 
         try {
             listStream = new FileInputStream(new File("src/com/company/res/animelist_1578925630_-_4974327.xml"));
@@ -16,5 +24,12 @@ public class Main {
             System.out.println("ERROR: List XML file not found.");
             System.exit(1);
         }
+
+        listSource = new InputSource(listStream);
+
+        parser.getAnimeFromSource(listSource);
+
+        System.out.println(animeList.size());
+
     }
 }

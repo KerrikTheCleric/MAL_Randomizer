@@ -1,1 +1,1 @@
-rating=g
+amount=5
