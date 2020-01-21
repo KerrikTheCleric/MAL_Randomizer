@@ -31,6 +31,8 @@ public class Main {
         randomizer = new Randomizer(animeList);
         resultList = randomizer.randomizeAnime();
 
+        System.out.println("");
+
         for (Anime a: resultList) {
             if(a.episodes == 1){
                 System.out.println(a.name + " - " + a.episodes + " Episode");
