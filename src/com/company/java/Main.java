@@ -19,7 +19,8 @@ public class Main {
         Randomizer randomizer;
 
         try {
-            listStream = new FileInputStream(new File("src/com/company/res/animelist_1578925630_-_4974327.xml"));
+            //listStream = new FileInputStream(new File("src/com/company/res/animelist_1578925630_-_4974327.xml"));
+            listStream = new FileInputStream(new File("src/com/company/res/animelist_1605005651_-_4974327.xml"));
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: List XML file not found.");
             System.exit(1);
